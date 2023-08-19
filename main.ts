@@ -1,24 +1,24 @@
 import { Application, Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
-import data from "./data.json" assert { type: "json" };
+import coreWarriorSkills from "./skills.ts";
 
 const router = new Router();
 router
   .get("/", (context) => {
-    context.response.body = "Welcome to dinosaur API!";
+    context.response.body = "Welcome to Guild Wars skills API!";
   })
   .get("/api", (context) => {
-    context.response.body = data;
+    context.response.body = coreWarriorSkills;
   })
-  .get("/api/:dinosaur", (context) => {
-    if (context?.params?.dinosaur) {
-      const found = data.find((item) =>
-        item.name.toLowerCase() === context.params.dinosaur.toLowerCase()
+  .get("/api/:name", (context) => {
+    if (context?.params?.name) {
+      const found = coreWarriorSkills.find((skill) =>
+        skill.name.toLowerCase() === context.params.name.toLowerCase()
       );
       if (found) {
         context.response.body = found;
       } else {
-        context.response.body = "No dinosaurs found.";
+        context.response.body = "No skill found.";
       }
     }
   });
