@@ -18,7 +18,7 @@ https://guild-wars-skills-api.deno.dev/
 - [ ] Core
 - - [x] Warrior
 - - [x] Ranger
-- - [ ] Monk
+- - [x] Monk
 - - [ ] Elementalist
 - - [ ] Mesmer
 - - [ ] Necromancer
