@@ -9,15 +9,15 @@ https://guild-wars-skills-api.deno.dev/
 ### Endpoints
 ```
 "/" - welcome text
-"/api" - all skills
-"/api/:name" - replace name with skill name to get information about specific skill
+"/api/profession/:profession" - all profession skills. Accepted values: warrior, ranger
+"/api/name/:name" - replace name with skill name to get information about specific skill
 ```
 
 ### Currently implemented skills
 
 - [ ] Core
 - - [x] Warrior
-- - [ ] Ranger
+- - [x] Ranger
 - - [ ] Monk
 - - [ ] Elementalist
 - - [ ] Mesmer
