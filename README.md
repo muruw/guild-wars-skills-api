@@ -7,21 +7,24 @@ The API is accessible from here:
 https://guild-wars-skills-api.deno.dev/
 
 ### Endpoints
+
 ```
 "/" - welcome text
-"/api/profession/:profession" - all profession skills. Accepted values: warrior, ranger
+"/api/profession/:profession" - all profession skills. Accepted values: warrior, ranger, monk, elementalist, mesmer, necromancer
 "/api/name/:name" - replace name with skill name to get information about specific skill
 ```
 
 ### Currently implemented skills
 
-- [ ] Core
+- [x] Core
 - - [x] Warrior
 - - [x] Ranger
 - - [x] Monk
-- - [ ] Elementalist
-- - [ ] Mesmer
-- - [ ] Necromancer
+- - [x] Elementalist
+- - [x] Mesmer
+- - [x] Necromancer
+- [ ] All skills
+- [ ] More request filters: by campaign, attribute, etc
 
 ## For running the API locally
 
