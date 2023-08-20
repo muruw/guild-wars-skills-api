@@ -1,6 +1,15 @@
 import { Application, Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
-import { coreWarriorSkills, coreRangerSkills, Profession, coreMonkSkills, allCoreSkills } from "./skills.ts";
+import {
+  allCoreSkills,
+  coreElementalistSkills,
+  coreMesmerSkills,
+  coreMonkSkills,
+  coreNecromancerSkills,
+  coreRangerSkills,
+  coreWarriorSkills,
+  Profession,
+} from "./skills.ts";
 
 const router = new Router();
 router
@@ -16,6 +25,12 @@ router
         context.response.body = coreRangerSkills;
       } else if (profession === "monk") {
         context.response.body = coreMonkSkills;
+      } else if (profession === "elementalist") {
+        context.response.body = coreElementalistSkills;
+      } else if (profession === "necromancer") {
+        context.response.body = coreNecromancerSkills;
+      } else if (profession === "mesmer") {
+        context.response.body = coreMesmerSkills;
       } else {
         context.response.body = `No skills found for {profession}`;
         context.response.status = 400;
