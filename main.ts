@@ -9,32 +9,33 @@ import {
   coreRangerSkills,
   coreWarriorSkills,
   Profession,
+  Skill,
 } from "./skills.ts";
 
 const router = new Router();
+
+const skillsMap: Record<Profession, Skill[]> = {
+  warrior: coreWarriorSkills,
+  mesmer: coreMesmerSkills,
+  monk: coreMonkSkills,
+  ranger: coreRangerSkills,
+  elementalist: coreElementalistSkills,
+  necromancer: coreNecromancerSkills,
+};
+
 router
   .get("/", (context) => {
     context.response.body = "Welcome to Guild Wars skills API!";
   })
   .get("/api/profession/:profession", (context) => {
-    if (context?.params?.profession) {
-      const profession = context.params.profession as Profession;
-      if (profession === "warrior") {
-        context.response.body = coreWarriorSkills;
-      } else if (profession === "ranger") {
-        context.response.body = coreRangerSkills;
-      } else if (profession === "monk") {
-        context.response.body = coreMonkSkills;
-      } else if (profession === "elementalist") {
-        context.response.body = coreElementalistSkills;
-      } else if (profession === "necromancer") {
-        context.response.body = coreNecromancerSkills;
-      } else if (profession === "mesmer") {
-        context.response.body = coreMesmerSkills;
-      } else {
-        context.response.body = `No skills found for {profession}`;
-        context.response.status = 400;
-      }
+    const profession = context?.params?.profession as Profession;
+    const skills = skillsMap[profession];
+
+    if (skills) {
+      context.response.body = skills;
+    } else {
+      context.response.body = `No skills found for ${profession}`;
+      context.response.status = 400;
     }
   })
   .get("/api/name/:name", (context) => {

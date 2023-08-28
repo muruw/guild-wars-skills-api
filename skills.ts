@@ -15,9 +15,15 @@ import core_mesmer_json from "./skills/core_mesmer.json" assert {
   type: "json",
 };
 
-export type Profession = "warrior" | "ranger" | "monk";
+export type Profession =
+  | "warrior"
+  | "ranger"
+  | "monk"
+  | "mesmer"
+  | "elementalist"
+  | "necromancer";
 
-interface Skill {
+export interface Skill {
   wiki_url: string;
   name: string;
   description: string;
