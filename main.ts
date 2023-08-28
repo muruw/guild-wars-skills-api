@@ -49,6 +49,16 @@ router
         context.response.body = "No skill found.";
       }
     }
+  })
+  .get("/api/random-skill", (context) => {
+    const index = Math.floor(Math.random() * allCoreSkills.length);
+    const skill = allCoreSkills[index];
+
+    if (skill) {
+      context.response.body = skill;
+    } else {
+      context.response.body = "No skills available";
+    }
   });
 
 const app = new Application();
