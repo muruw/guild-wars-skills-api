@@ -12,6 +12,7 @@ https://guild-wars-skills-api.deno.dev/
 "/" - welcome text
 "/api/profession/:profession" - all profession skills. Accepted values: warrior, ranger, monk, elementalist, mesmer, necromancer
 "/api/name/:name" - replace name with skill name to get information about specific skill
+"/api/random-skill" - return 1 random skill from any profession
 ```
 
 ### Currently implemented skills
